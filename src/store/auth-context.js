@@ -21,6 +21,10 @@ export const AuthContextProvider  =(props)=>{
     const logoutHandler =  ()=>{
         setToken(null);
         localStorage.removeItem('token');
+        setTimeout(()=>{
+            localStorage.clear('token');
+            setToken(null);
+        },5*60*1000);
     }
 
     const contextValue = {
